@@ -49,11 +49,11 @@ module axi_dac_interpolate #(
 
   input                 dma_valid_a,
   input                 dma_valid_b,
+  output                dma_ready_a,
+  output                dma_ready_b,
 
   output      [15:0]    dac_int_data_a,
   output      [15:0]    dac_int_data_b,
-  output                dac_int_valid_a,
-  output                dac_int_valid_b,
 
   input       [ 1:0]    trigger_i,
   input                 trigger_adc,
@@ -201,7 +201,7 @@ module axi_dac_interpolate #(
     .dac_valid (dac_valid_a),
 
     .dac_int_data (dac_int_data_a),
-    .dac_int_valid (dac_int_valid_a),
+    .dac_ready (dma_ready_a),
 
     .filter_mask (filter_mask_a),
     .interpolation_ratio (interpolation_ratio_a),
@@ -225,7 +225,7 @@ module axi_dac_interpolate #(
     .dac_valid (dac_valid_b),
 
     .dac_int_data (dac_int_data_b),
-    .dac_int_valid (dac_int_valid_b),
+    .dac_ready (dma_ready_b),
 
     .filter_mask (filter_mask_b),
     .interpolation_ratio (interpolation_ratio_b),
