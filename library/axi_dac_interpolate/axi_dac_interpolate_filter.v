@@ -47,7 +47,7 @@ module axi_dac_interpolate_filter #(
   input                 dac_valid,
 
   output  reg [15:0]    dac_int_data,
-  output                dac_ready,
+  output                dma_ready,
 
   input       [ 2:0]    filter_mask,
   input       [31:0]    interpolation_ratio,
@@ -164,7 +164,7 @@ module axi_dac_interpolate_filter #(
     end
   end
 
-  assign dac_ready = transmit_ready ? dac_int_ready : 1'b0;
+  assign dma_ready = transmit_ready ? dac_int_ready : 1'b0;
 
   always @(posedge dac_clk) begin
     case (filter_mask)

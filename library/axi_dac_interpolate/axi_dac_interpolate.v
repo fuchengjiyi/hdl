@@ -201,7 +201,7 @@ module axi_dac_interpolate #(
     .dac_valid (dac_valid_a),
 
     .dac_int_data (dac_int_data_a),
-    .dac_ready (dma_ready_a),
+    .dma_ready (dma_ready_a),
 
     .filter_mask (filter_mask_a),
     .interpolation_ratio (interpolation_ratio_a),
@@ -225,7 +225,7 @@ module axi_dac_interpolate #(
     .dac_valid (dac_valid_b),
 
     .dac_int_data (dac_int_data_b),
-    .dac_ready (dma_ready_b),
+    .dma_ready (dma_ready_b),
 
     .filter_mask (filter_mask_b),
     .interpolation_ratio (interpolation_ratio_b),
