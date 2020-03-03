@@ -126,7 +126,7 @@ module axi_dac_interpolate_filter #(
     end
   end
 
-  // - for start synchronized, wait until the DMA has valid data on boath channels
+  // - for start synchronized, wait until the DMA has valid data on both channels
   // - for non synchronized channels the start of transmission gets the 2 data
   // paths randomly ready, only when using data buffers
 
