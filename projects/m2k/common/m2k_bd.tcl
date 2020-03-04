@@ -250,9 +250,11 @@ ad_connect ad9963_dac_dmac_b/m_axis_aclk axi_ad9963/dac_clk
 
 ad_connect axi_dac_interpolate/dac_data_a     ad9963_dac_dmac_a/m_axis_data
 ad_connect axi_dac_interpolate/dma_ready_a    ad9963_dac_dmac_a/m_axis_ready
+ad_connect axi_dac_interpolate/dac_enable_a   axi_ad9963/dac_enable_i
 ad_connect ad9963_dac_dmac_a/m_axis_valid     axi_dac_interpolate/dma_valid_a
 ad_connect axi_dac_interpolate/dac_data_b     ad9963_dac_dmac_b/m_axis_data
 ad_connect axi_dac_interpolate/dma_ready_b    ad9963_dac_dmac_b/m_axis_ready
+ad_connect axi_dac_interpolate/dac_enable_b   axi_ad9963/dac_enable_q
 ad_connect ad9963_dac_dmac_b/m_axis_valid     axi_dac_interpolate/dma_valid_b
 
 ad_connect axi_dac_interpolate/trigger_i   trigger_i
@@ -278,6 +280,7 @@ ad_connect trigger_t adc_trigger/trigger_t
 
 ad_connect axi_ad9963/dac_sync_in axi_ad9963/dac_sync_out
 ad_connect axi_ad9963/adc_dovf    ad9963_adc_dmac/fifo_wr_overflow
+ad_connect axi_ad9963/dac_dunf    axi_dac_interpolate/underflow
 
 # interconnects
 
