@@ -46,8 +46,10 @@ module axi_dac_interpolate_filter #(
   input       [15:0]    dac_data,
   input                 dac_valid,
 
+  input                 dac_enable,
   output  reg [15:0]    dac_int_data,
   output                dma_ready,
+  output                underflow,
 
   input       [ 2:0]    filter_mask,
   input       [31:0]    interpolation_ratio,
@@ -165,6 +167,7 @@ module axi_dac_interpolate_filter #(
   end
 
   assign dma_ready = transmit_ready ? dac_int_ready : 1'b0;
+  assign underflow = dac_enable & dma_ready & ~dma_valid;
 
   always @(posedge dac_clk) begin
     case (filter_mask)
